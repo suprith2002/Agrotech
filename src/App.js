@@ -50,14 +50,11 @@ function App() {
     <Alert alert={alert}/>
     <TIRUGU>
     {/* <HOGU exact path="/" element={<><Navbar/> <Alert alert={alert}/><Mane showAlert={showAlert}/>  </>}/>
-
     <HOGU exact path="/about" element={<><Navbar/> <Alert alert={alert}/><AboutUs/></>}/>
     <HOGU exact path="/login" element={<><Navbar/> <Alert alert={alert}/><Login showAlert={showAlert}/></>}/>
     <HOGU exact path="/login2" element={<><Navbar/> <Alert alert={alert}/><Login2 showAlert={showAlert}/></>}/>
-
     <HOGU exact path="/signup" element={<><Navbar/> <Alert alert={alert}/><Signup showAlert={showAlert}/></>}/>
     <HOGU exact path="/notes2" element={<Notes2/>}/>
-
     <HOGU exact path="/alln" element={<><Navbar/> <Alert alert={alert}/><AllEq/></>}/> */}
 
 
@@ -71,7 +68,7 @@ function App() {
     <HOGU exact path="/login2" element={<><Login2 showAlert={showAlert}/></>}/>
 
     <HOGU exact path="/signup" element={<><Signup showAlert={showAlert}/></>}/>
-    <HOGU exact path="/notes2" element={<Notes2/>}/>
+    <HOGU exact path="/notes2" element={<Notes2 showAlert={showAlert}/>}/>
 
     <HOGU exact path="/alln" element={<><AllEq/></>}/>
 

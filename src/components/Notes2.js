@@ -4,10 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import noteContext from "../context/noteContext";
 import AddNote from './AddNote';
 import Navbar from './Navbar';
-import NoteItem from './NoteItem';
+import NoteItemUser2 from './NoteItemUser2';
 
 const Notes = (props) => {
-  const[note, setNote] = useState([{id :"", etitle: "", edescription: "", etag: ""}])
+  const notesIntitial = []
+  const[notes, setNote] = useState(notesIntitial)
+  // [{id :"", title: "", description: "", tag: "", number: ""}]
   let navigate = useNavigate()
 
 
@@ -15,20 +17,16 @@ const Notes = (props) => {
 
   const context = useContext(noteContext)
 
-  const { notes, getnotes, editNote, editorder } = context;
-  const onchange2 = (e)=>{
-    const newNotes = notes.filter((note)=>{return note.etag==e.target.value})
-    console.log(newNotes)
-      setNote(newNotes)
-  }
+  const { editNote, editorder } = context;
+
 
   useEffect(() => {
     if(sessionStorage.getItem('token')){
-      getnotes()
+      AllnoteU2()
 
     }
     else{
-      navigate("/login")
+      navigate("/login2")
     }
 
 
@@ -67,6 +65,29 @@ useEffect(() => {
  em()
 
 }, [])
+const AllnoteU2= async ()=>{
+
+  const response= await fetch("http://localhost:5001/api/notes/fetchallnotesuser2",
+  {
+    method:'GET',
+    headers:{
+      'Content-Type': 'application/json',
+
+      "auth-token":sessionStorage.getItem('token')
+      // "auth-token":sessionStorage.getItem('token')
+
+    }
+  })
+  const json=await response.json()
+  console.log(json)
+  // setNote2(json)
+  setNote(json)
+  // const c=  await getnotes();
+  // setNote2(c)
+  
+
+
+}
 
 
 
@@ -83,25 +104,21 @@ useEffect(() => {
         {/* <select onChange={onchange2}>
           <option value="Personal">Personal</option>
           <option value="Hehe" >Hehe</option>
-
-
         </select> */}
         <h2>Your Equipments This Is Notes23 {email}</h2>
         <span> {notes.length===0 && "No Equipments To Display"} </span>
-        {/* { 
+        { 
             notes.map((note) => {
-            return <NoteItem key={note._id} note={note} showAlert={props.showAlert} />
+            return <NoteItemUser2 key={note._id} note={note}  showAlert={props.showAlert}/>
           })
           
-          } */}
-           {/* updateNote={updateNote}  */}
+          }
 
          {/* ( notes  >= 0 )
            ?
            notes.map((note) => { */}
 
           {/* //   return <NoteItem key={note._id}   note={note} />
-
           // })
           // :
           // null

@@ -311,10 +311,10 @@ router.get('/fetchallnotesuser2',fetchUser2,async (req, res) => {
    try {
     const notes = await Notes.find({  user2:  req.user2.id  });
     // const user2 = await User2.findById(notes.user2)
-    res.json({notes});
+    res.json(notes);
   
    } catch (error) {
-    res.send("Router 1 in notes.js api");
+    res.send("Fetchallnotesuser2 1 in notes.js api");
     
    } 
 })
