@@ -252,52 +252,52 @@ note = await Notes.findByIdAndUpdate(req.params.id,{$set : newNote}, {new : true
 // });
 
 //deleteuser2
-router.put('/updatenotedeleteuser2/:id',fetchUser2,
-// [
+// router.put('/updatenotedeleteuser2/:id',
+// // [
 
-//     //validation of entered data
-//     body('title', 'Enter a valid username').isLength({ min: 5 }),
-//     body('description', 'Password must be atleast 5 characters').isLength({ min: 5 }).exists(),
+// //     //validation of entered data
+// //     body('title', 'Enter a valid username').isLength({ min: 5 }),
+// //     body('description', 'Password must be atleast 5 characters').isLength({ min: 5 }).exists(),
 
 
 
-// ], 
-async (req, res) => {
+// // ], 
+// async (req, res) => {
 
-const {title,description,tag,user2} = req.body;
- const newNote = {};
-// if (title) {
-//     newNote.title=title
+// const {title,description,tag,user2} = req.body;
+//  const newNote = {};
+// // if (title) {
+// //     newNote.title=title
+// // }
+// // if (description) {
+// //     newNote.description=description
+// // }
+// // if (tag) {
+// //     newNote.tag=tag
+// // }
+// // if (req.user2.id){
+//     newNote.user2=null
+
+// // }
+
+
+// //Route 4 FIND the note to be updated and update it
+// let note = await Notes.findById(req.params.id)
+// if(!note){
+//      return res.status(404).send("NOTE NOT FOUND")
 // }
-// if (description) {
-//     newNote.description=description
-// }
-// if (tag) {
-//     newNote.tag=tag
-// }
-if (req.user2.id){
-    newNote.user2=null
+// if (note.user2.toString () !== req.user2.id) {
 
-}
-
-
-//Route 4 FIND the note to be updated and update it
-let note = await Notes.findById(req.params.id)
-if(!note){
-     return res.status(404).send("NOTE NOT FOUND")
-}
-if (note.user2.toString () !== req.user2.id) {
-
-    return res.status(401).send("KAND KANDAVRA NOTES UPDATE MAADALE BARTILLE")
+//     return res.status(401).send("KAND KANDAVRA NOTES UPDATE MAADALE BARTILLE")
     
-}
-note = await Notes.findByIdAndUpdate(req.params.id,{$set : newNote}, {new : true})
-    res.json({note})
+// }
+// note = await Notes.findByIdAndUpdate(req.params.id,{$set : newNote}, {new : true})
+//     res.json({note})
 
 
 
 
-});
+// });
 
 //fetchallnotesuser2
 router.get('/fetchallnotesuser2',fetchUser2,async (req, res) => {
@@ -358,6 +358,52 @@ if(!note){
     
 // }
 note = await Notes.findByIdAndUpdate(req.params.id,{$set : newNote}, {new : true})
+    res.json(note)
+
+
+
+
+});
+router.put('/du2',fetchUser,
+// [
+
+//     //validation of entered data
+//     body('title', 'Enter a valid username').isLength({ min: 5 }),
+//     body('description', 'Password must be atleast 5 characters').isLength({ min: 5 }).exists(),
+
+
+
+// ], 
+async (req, res) => {
+
+const {title,description,tag,user2,id} = req.body;
+ const newNote = {};
+// if (title) {
+//     newNote.title=title
+// }
+// if (description) {
+//     newNote.description=description
+// }
+// if (tag) {
+//     newNote.tag=tag
+// }
+// if (req.user2.id){
+    newNote.user2=null
+
+// }
+
+
+//Route 4 FIND the note to be updated and update it
+let note = await Notes.findById(id)
+if(!note){
+     return res.status(404).send("NOTE NOT FOUND")
+}
+if (note.user.toString () !== req.user.id) {
+
+    return res.status(401).send("KAND KANDAVRA NOTES UPDATE MAADALE BARTILLE")
+    
+}
+note = await Notes.findByIdAndUpdate(id,{$set : newNote}, {new : true})
     res.json(note)
 
 

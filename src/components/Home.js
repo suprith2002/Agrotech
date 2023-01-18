@@ -48,7 +48,7 @@ const { notes, getnotes, editNote, editorder, block, setblock } = context;
 
 
   return (
-  (block) ?  <div className='px-4'><div className='mx-4 w-25'><marquee>Welcome User</marquee></div> <span className='mx-4'> {email.email} </span>
+    sessionStorage.getItem('token') ?  <div className='px-4'><div className='mx-4 w-25'><marquee>Welcome User</marquee></div> <span className='mx-4'> {email.email} </span>
 
 
   

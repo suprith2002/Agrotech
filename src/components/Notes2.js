@@ -21,7 +21,7 @@ const Notes = (props) => {
 
 
   useEffect(() => {
-    if(sessionStorage.getItem('token')){
+    if(sessionStorage.getItem('token2')){
       AllnoteU2()
 
     }
@@ -38,7 +38,7 @@ const Notes = (props) => {
   const response = await fetch("http://localhost:5001/api/auth/getuseremail2", {
     method: 'POST',
     headers: {
-      "auth-token":sessionStorage.getItem('token'),
+      "auth-token":sessionStorage.getItem('token2'),
       // "auth-token": localStorage.getItem('token'),
       'Content-Type': 'application/json'
     },
@@ -73,7 +73,7 @@ const AllnoteU2= async ()=>{
     headers:{
       'Content-Type': 'application/json',
 
-      "auth-token":sessionStorage.getItem('token')
+      "auth-token":sessionStorage.getItem('token2')
       // "auth-token":sessionStorage.getItem('token')
 
     }

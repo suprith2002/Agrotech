@@ -20,6 +20,7 @@ const Navbar = () => {
 
     const handleLogout = () => {
       sessionStorage.removeItem('token');
+      sessionStorage.removeItem('token2');
       setblock(false)
       navigate("/login")
 
@@ -40,12 +41,11 @@ const Navbar = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-         {(sessionStorage.getItem('token') &&
-(block))&& <KONDI className={`nav-link ${(location.pathname === "/")?"active bg-danger":'bg-success'}`} aria-current="page" to="/">Home</KONDI>}
+         {(sessionStorage.getItem('token'))&& <KONDI className={`nav-link ${(location.pathname === "/")?"active bg-danger":'bg-success'}`} aria-current="page" to="/">Home</KONDI>}
 
 
 <li className="nav-item">
-         {((!block) && sessionStorage.getItem('token')) && <KONDI className={`nav-link ${(location.pathname === "/notes2")?"active bg-danger":'bg-success'}`} aria-current="page" to="/notes2">YourHome</KONDI>}
+         {( sessionStorage.getItem('token2')) && <KONDI className={`nav-link ${(location.pathname === "/notes2")?"active bg-danger":'bg-success'}`} aria-current="page" to="/notes2">YourHome</KONDI>}
         </li>
 
         </li>
@@ -53,7 +53,7 @@ const Navbar = () => {
           <KONDI className={`nav-link ${(location.pathname === "/about")?"active bg-danger":'bg-success'}`} to="/about">AboutUs</KONDI>
         </li>
         <li className="nav-item">
-         {((!block) && sessionStorage.getItem('token')) && <KONDI className={`nav-link ${(location.pathname === "/alln")?"active bg-danger":'bg-success'}`} aria-current="page" to="/alln">All Equipment</KONDI>}
+         {(sessionStorage.getItem('token2')) && <KONDI className={`nav-link ${(location.pathname === "/alln")?"active bg-danger":'bg-success'}`} aria-current="page" to="/alln">All Equipment</KONDI>}
         </li>
         <li className="nav-item">
          <KONDI className={`nav-link ${(location.pathname === "/news")?"active bg-danger":'bg-success'}`} aria-current="page" to="/news">News English</KONDI>
@@ -74,7 +74,7 @@ const Navbar = () => {
           <a className="nav-link disabled">Disabled</a>
         </li> */}
       </ul>
-      {!sessionStorage.getItem('token')? <form className="d-flex" role="search">
+      {!(sessionStorage.getItem('token') || sessionStorage.getItem('token2') )? <form className="d-flex" role="search">
         <KONDI className="btn btn-primary" to="/login" role="button">Login</KONDI>
         <KONDI className="btn btn-primary" to="/login2" role="button">Login2</KONDI>
 

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useContext, useEffect, UseRef , useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import noteContext from "../context/noteContext";
 import AddNote from './AddNote';
@@ -14,7 +14,7 @@ const Notes = (props) => {
   const handleClick = (e)=>{
     e.preventDefault();
     console.log("Saved Your Changes", note)
-    if((note.enumber3.length == 10 ) &&  ((note.enumber3.charAt(0) == 6) || (note.enumber3.charAt(0) == 7) || (note.enumber3.charAt(0) == 8) || (note.enumber3.charAt(0) == 9) ) )
+    if((note.enumber3.length === 10 ) &&  ((note.enumber3.charAt(0) === 6) || (note.enumber3.charAt(0) === 7) || (note.enumber3.charAt(0) === 8) || (note.enumber3.charAt(0) === 9) ) )
     {  setlen(":")
        editNote(note.id, note.etitle, note.edescription, note.etag, note.enumber3)
     refClose.current.click()
@@ -43,11 +43,11 @@ const onChange = (e)=>{
   const context = useContext(noteContext)
 
   const { notes, getnotes, editNote, editorder } = context;
-  const onchange2 = (e)=>{
-    const newNotes = notes.filter((note)=>{return note.etag==e.target.value})
-    console.log(newNotes)
-      setNote(newNotes)
-  }
+  // const onchange2 = (e)=>{
+  //   const newNotes = notes.filter((note)=>{return note.etag==e.target.value})
+  //   console.log(newNotes)
+  //     setNote(newNotes)
+  // }
 
   useEffect(() => {
     if(sessionStorage.getItem('token')){
@@ -70,10 +70,51 @@ const onChange = (e)=>{
   const noorder = (id)=>{
     const b = "Hehe"
     console.log(b)
+    let y = window.confirm("do you want to reset Order?")
+    if(y){
+    nullifyU2(id._id)
     
     editorder(id._id, b)
     props.showAlert("Resetted Order", "success")
+    }
+    else{
+      props.showAlert("Cancelled","danger")
+    }
   }
+
+  const nullifyU2 = async(id)=>{
+    //API call
+    const response = await fetch("http://localhost:5001/api/notes/du2", {
+      method: 'PUT',
+      headers: {
+        "auth-token":sessionStorage.getItem('token'),
+        // "auth-token": sessionStorage.getItem('token'),
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({id})
+    })
+    const json = response.json();
+    //Harry Bhai Method
+    // for (let index = 0; index<notes.length;index++){
+    //   const element =notes[index];
+    
+    //   if(element._id === id){
+    //     notes[index].title = title;
+    //     notes[index].description = description;
+    //     notes[index].tag = tag;
+    //   }
+    //   break;
+    // }
+    // setNote2(json)
+    // getnotes()
+//  allnotes("All")
+
+    //my method
+  //  const c=  await getnotes();
+  //  setNote2(json)
+
+
+}
 
 
   // useEffect(() => {

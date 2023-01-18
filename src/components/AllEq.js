@@ -47,6 +47,7 @@ const AllEq = () => {
         e.preventDefault();
         // setinputt(document.getElementsByName("order").value)
         // console.log(document.getElementsByName("order").value)
+        addU2(order.id)
         editorder(order.id,order.order)
         refClose.current.click()
 
@@ -63,6 +64,39 @@ const AllEq = () => {
         // editorder(CurrentNote._id,order)
 
       }
+      const addU2 = async(id)=>{
+        //API call
+        const response = await fetch(`http://localhost:5001/api/notes/updatenote1234/${id}`, {
+          method: 'PUT',
+          headers: {
+            "auth-token":sessionStorage.getItem('token2'),
+            // "auth-token": sessionStorage.getItem('token'),
+            'Content-Type': 'application/json'
+          },
+          // body: JSON.stringify({order})
+        })
+        const json = response.json();
+        //Harry Bhai Method
+        // for (let index = 0; index<notes.length;index++){
+        //   const element =notes[index];
+        
+        //   if(element._id === id){
+        //     notes[index].title = title;
+        //     notes[index].description = description;
+        //     notes[index].tag = tag;
+        //   }
+        //   break;
+        // }
+        // setNote2(json)
+        // getnotes()
+    //  allnotes("All")
+    
+        //my method
+      //  const c=  await getnotes();
+      //  setNote2(json)
+    
+    
+    }
 
   return (
     <div>

@@ -31,7 +31,7 @@ const Login = (props) => {
             'Content-Type': 'application/json',
   
             // "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM5MWQzOWJiNmVhOTU0Y2MxODlkNzVkIn0sImlhdCI6MTY3MDUxODkxMn0.OJPf3iCjchdsN5MtYS7TfLCOUFu4-93rHnhDWI84XGU"
-            "auth-token":sessionStorage.getItem('token')
+            "auth-token":sessionStorage.getItem('token2')
   
           },
           body: JSON.stringify({email:credentials.email})
@@ -42,7 +42,7 @@ const Login = (props) => {
       
         if (json.success) {
             //redirecting
-            sessionStorage.setItem('token', json.AUthtoken)
+            sessionStorage.setItem('token2', json.AUthtoken)
             props.showAlert("Successfully logged In","success")
           
             navigate("/notes2")

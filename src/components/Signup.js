@@ -45,7 +45,7 @@ const Signup = (props) => {
         setredd({
           color:'red'
         })
-         setlen(": Should Be 10 Digits And Start With 6 or 7 or 8 or 9")
+         setlen(":Phone Number Should Be 10 Digits And Start With 6 or 7 or 8 or 9")
       }
 
     }
