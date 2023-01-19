@@ -8,6 +8,7 @@ import {
     useNavigate
   } from "react-router-dom";
   import noteContext from "../context/noteContext";
+  import Log from "./Log.png";
 
 
 
@@ -32,31 +33,30 @@ const Navbar = () => {
     // }, [location])
   return (
     <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark tw-bg-purple-900 tw-h-16  tw-items-center tw-flex tw-justify-between">
+        <img src={Log} className='tw-h-14 tw-w-14 tw-lg:w-14  tw-rounded-3xl tw-py-2 tw-px-0'></img>
   <div className="container-fluid">
-    <a className="navbar-brand " href="">Navbar</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
+    <a className="navbar-brand tw-text-stone-100 tw-text-2xl tw-font-semibold tw-text-opacity-40 tw-hover:text-pink-600 tw-transform tw-duration-500" href="">AGROTECH</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-         {(sessionStorage.getItem('token'))&& <KONDI className={`nav-link ${(location.pathname === "/")?"active bg-danger":'bg-success'}`} aria-current="page" to="/">Home</KONDI>}
-
-
-<li className="nav-item">
-         {( sessionStorage.getItem('token2')) && <KONDI className={`nav-link ${(location.pathname === "/notes2")?"active bg-danger":'bg-success'}`} aria-current="page" to="/notes2">YourHome</KONDI>}
-        </li>
+    <div className="collapse navbar-collapse tw-items-center tw-flex tw-justify-between" id="navbarSupportedContent">
+      <ul className="navbar-nav tw-space-x-4 tw-space-y-2 mb-lg-0 tw-mx-4">
+        <li className="nav-item navlogo">
+         {(sessionStorage.getItem('token'))&& <KONDI className={` ${(location.pathname === "/")?"tw-text-slate-300 tw-text-2xl":'tw-text-pink-700'}`} aria-current="page" to="/">Home</KONDI>}
 
         </li>
-        <li className="nav-item">
-          <KONDI className={`nav-link ${(location.pathname === "/about")?"active bg-danger":'bg-success'}`} to="/about">AboutUs</KONDI>
+        <li className="nav-item navlogo">
+         {( sessionStorage.getItem('token2')) && <KONDI className={` ${(location.pathname === "/notes2")?"tw-text-slate-300 tw-text-2xl":'tw-text-pink-700'}`} aria-current="page" to="/notes2">YourHome</KONDI>}
         </li>
-        <li className="nav-item">
-         {(sessionStorage.getItem('token2')) && <KONDI className={`nav-link ${(location.pathname === "/alln")?"active bg-danger":'bg-success'}`} aria-current="page" to="/alln">All Equipment</KONDI>}
+        <li className="nav-item hover:tw-text-pink-600 hover:tw-text-2xl tw-font-semibold tw-cursor-pointer tw-transform tw-duration-500  tw-text-pink-600 ">
+          <KONDI className={`${(location.pathname === "/about")?"tw-text-slate-300 tw-text-2xl":'tw-text-pink-700'} `} to="/about">AboutUs</KONDI>
         </li>
-        <li className="nav-item">
-         <KONDI className={`nav-link ${(location.pathname === "/news")?"active bg-danger":'bg-success'}`} aria-current="page" to="/news">News English</KONDI>
+        <li className="nav-item navlogo">
+         {(sessionStorage.getItem('token2')) && <KONDI className={` ${(location.pathname === "/alln")?"tw-text-slate-300 tw-text-2xl":'tw-text-pink-700'}`} aria-current="page" to="/alln">All Equipment</KONDI>}
+        </li>
+        <li className="nav-item hover:tw-text-pink-600 hover:tw-text-2xl tw-font-semibold tw-cursor-pointer tw-transform tw-duration-500  tw-text-pink-600 tw-my-2">
+         <KONDI className={` ${(location.pathname === "/news")?" tw-text-zinc-400 tw-text-2xl ":' tw-text-pink-600 '}`} aria-current="page" to="/news">News English</KONDI>
         </li>
 {/*        
         <li className="nav-item dropdown">
@@ -74,13 +74,14 @@ const Navbar = () => {
           <a className="nav-link disabled">Disabled</a>
         </li> */}
       </ul>
-      {!(sessionStorage.getItem('token') || sessionStorage.getItem('token2') )? <form className="d-flex" role="search">
-        <KONDI className="btn btn-primary" to="/login" role="button">Login</KONDI>
-        <KONDI className="btn btn-primary" to="/login2" role="button">Login2</KONDI>
+     
+      {!(sessionStorage.getItem('token') || sessionStorage.getItem('token2') )? <ul className=" tw-space-x-2 tw-space-y-2  tw-mx-4 tw-flex tw-flex-row tw-text-right">
+       <li> <KONDI className="" to="/login" role="button"><button className='tw-bg-fuchsia-400 tw-w-14 tw-h-10 tw-rounded-full'>Login</button></KONDI></li>
+        <li><KONDI className="btn btn-primary" to="/login2" role="button">Login2</KONDI></li>
 
-        <KONDI className="btn btn-primary mx-2" to="/signup" role="button">Signup</KONDI>
+       <li> <KONDI className="btn btn-primary mx-2" to="/signup" role="button">Signup</KONDI></li>
 
-      </form>:<button className='btn btn-primary' onClick={handleLogout}>Logout</button>}
+      </ul>:<button className='btn btn-primary' onClick={handleLogout}>Logout</button>}
     </div>
   </div>
 </nav>

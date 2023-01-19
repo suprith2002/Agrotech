@@ -2,6 +2,13 @@ import React , {useState}from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 import noteContext from "../context/noteContext";
+import {
+  BrowserRouter as ANNA,
+  Routes as TIRUGU,
+  Route as HOGU,
+  Link as KONDI,
+  useLocation,
+} from "react-router-dom";
 // import jwt_decode from "jwt-decode";
 
 // import { RenderErrorBoundary } from 'react-router/dist/lib/hooks'
@@ -106,7 +113,7 @@ const Login = (props) => {
   <button type="submit" className="btn btn-primary btn-block mb-4" >Sign in</button>
 
   <div className="text-center">
-    <p>Not a member? <a href="#!">Register</a></p>
+  <p>Not a member? <KONDI to="/signup2">Signup</KONDI></p>
     <p>or sign up with:</p>
     <button type="button" className="btn btn-link btn-floating mx-1">
       <i className="fab fa-facebook-f"></i>

@@ -236,11 +236,39 @@ const NoteState = (props) =>{
                   // }
                   // setNote2(json)
                   // getnotes()
+               allnotes("All")
+              
                   //my method
-                 const c=  await getnotes();
-                 setNote2(c)
+                //  const c=  await getnotes();
+                //  setNote2(json)
+
 
         }
+
+        const AllnoteU2= async ()=>{
+
+          const response= await fetch("http://localhost:5001/api/notes/fetchallnotesuser2",
+          {
+            method:'GET',
+            headers:{
+              'Content-Type': 'application/json',
+        
+              "auth-token":sessionStorage.getItem('token')
+              // "auth-token":sessionStorage.getItem('token')
+        
+            }
+          })
+          const json=await response.json()
+          console.log(json)
+          // setNote2(json)
+          setNote(json)
+          // const c=  await getnotes();
+          // setNote2(c)
+          
+        
+        
+        }
+
 
     return(
 

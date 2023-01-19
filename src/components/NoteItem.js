@@ -72,7 +72,6 @@ const Noteitem = (props) => {
           {/* <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" >
         Launch demo modal
       </button>
-
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div className="modal-dialog">
@@ -113,7 +112,7 @@ const Noteitem = (props) => {
      
 
 
-         <div className='card col-md-5 mx-3 my-3'>
+         <div className='card col-md-5 mx-3 my-3 '>
  
   <div className="cd-grid-1fr">
     <h5 className="card-title">  {note.title} 

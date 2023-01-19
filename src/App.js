@@ -21,6 +21,7 @@ import News from './components/News';
 
 
 import Signup from './components/Signup';
+import Signup2 from './components/Signup2';
 import AllEq from './components/AllEq';
 // import noteContext from "./context/noteContext";
 
@@ -68,6 +69,8 @@ function App() {
     <HOGU exact path="/login2" element={<><Login2 showAlert={showAlert}/></>}/>
 
     <HOGU exact path="/signup" element={<><Signup showAlert={showAlert}/></>}/>
+    <HOGU exact path="/signup2" element={<><Signup2 showAlert={showAlert}/></>}/>
+
     <HOGU exact path="/notes2" element={<Notes2 showAlert={showAlert}/>}/>
 
     <HOGU exact path="/alln" element={<><AllEq/></>}/>

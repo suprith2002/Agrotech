@@ -6,16 +6,20 @@ import AddNote from './AddNote';
 import NoteItem from './NoteItem';
 
 const Notes = (props) => {
-  const[note, setNote] = useState([{id :"", etitle: "", edescription: "", etag: "", enumber3:0}])
+  const[note, setNote] = useState({id :"", etitle: "", edescription: "", etag: "", enumber3:""})
+  
   let navigate = useNavigate()
   const [len, setlen] = useState(":")
   const [redd, setredd] = useState(null)
 
-  const handleClick = (e)=>{
+    const handleClick = (e)=>{
     e.preventDefault();
     console.log("Saved Your Changes", note)
-    if((note.enumber3.length === 10 ) &&  ((note.enumber3.charAt(0) === 6) || (note.enumber3.charAt(0) === 7) || (note.enumber3.charAt(0) === 8) || (note.enumber3.charAt(0) === 9) ) )
-    {  setlen(":")
+    let nu = String(note.enumber3)
+    if( (nu.length === 10) &&
+     ((nu.charAt(0) === 6) || (nu.charAt(0) === 7) || (nu.charAt(0) === 8) || (nu.charAt(0) === 9) ))
+    { 
+       setlen(":")
        editNote(note.id, note.etitle, note.edescription, note.etag, note.enumber3)
     refClose.current.click()
     props.showAlert("Updated Equipment", "success")
@@ -31,7 +35,7 @@ const Notes = (props) => {
     setredd({
       color:'red'
     })
-     setlen(": Should Be 10 Digits And Start With 6 or 7 or 8 or 9")
+     setlen(": Should Be 10 Digits")
   }
 
 }
@@ -133,6 +137,8 @@ const onChange = (e)=>{
 
   return (
     <div>
+          <meta charset="utf-8" />
+
       <div id='ho'>
       <AddNote showAlert={props.showAlert}/> </div>
       <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" >
@@ -158,7 +164,7 @@ const onChange = (e)=>{
                   <label htmlfor="description" className="form-label">Description</label>
                   <input type="text" className="form-control" name='edescription' id="edescription" value={note.edescription} onChange={onChange} minLength={5} required/><br/>
                   <label htmlfor="enumber3" className="form-label" style={redd}>Mobile Number{len}
-         <input type="number" className="form-control" name='enumber3' id="enumber3" value={note.enumber3}  required onChange={onChange}/><br/>
+         <input type="number" className="form-control" name='enumber3' id="enumber3" value={note.enumber3} pattern="[6||7||8||9]+" required onChange={onChange}/><br/>
          </label><br/>
                 </div>
                 {/* <div className="mb-3 form-check">
