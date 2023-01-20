@@ -13,9 +13,20 @@ code {
     monospace;
 }
 @tailwind base;
+
 @tailwind components;
+
+
 @tailwind utilities;
 .navlogo{
 
   @apply hover:tw-text-pink-600 hover:tw-text-2xl tw-font-semibold tw-cursor-pointer tw-transform tw-duration-500  tw-text-pink-600 tw-my-2;
+}
+.logbutton{
+  @apply tw-bg-fuchsia-400 tw-w-14 tw-h-14 tw-rounded-full tw-py-3 hover:tw-bg-pink-600 hover:tw-text-lg tw-transform tw-duration-500;
+}
+@layer components{
+.berebutton{
+  @apply    tw-w-20 tw-h-14 tw-rounded-2xl tw-py-3 hover:tw-text-lime-400 hover:tw-text-lg tw-transform tw-duration-500 tw-text-slate-100 tw-font-semibold hover:tw-bg-green-600;
+}
 }

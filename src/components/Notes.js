@@ -215,7 +215,7 @@ const onChange = (e)=>{
         } */}
       </div>
 
-      <a href='#ho'><button className='btn btn-primary'>Goto Top</button></a>
+      <a href='#ho'><button className='tw-bg-blue-600 berebutton'>Goto Top</button></a>
     </div>
     
   )
