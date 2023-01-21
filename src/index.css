@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url("JYU.jpg"); */
+  background-image: url("JYU.jpg");
+  
 }
 
 code {
@@ -20,10 +21,13 @@ code {
 @tailwind utilities;
 .navlogo{
 
-  @apply hover:tw-text-pink-600 hover:tw-text-2xl tw-font-semibold tw-cursor-pointer tw-transform tw-duration-500  tw-text-pink-600 tw-my-2;
+  @apply hover:tw-text-white hover:tw-text-2xl tw-font-semibold tw-cursor-pointer tw-transform tw-duration-500  tw-text-pink-300 tw-my-2;
 }
 .logbutton{
   @apply tw-bg-fuchsia-400 tw-w-14 tw-h-14 tw-rounded-full tw-py-3 hover:tw-bg-pink-600 hover:tw-text-lg tw-transform tw-duration-500;
+}
+.cardguru{
+  @apply tw-bg-slate-100 tw-border-2 tw-border-fuchsia-600 tw-border-y-purple-600 tw-text-center hover:tw-border-double tw-transform tw-duration-200 hover:tw-border-4;
 }
 @layer components{
 .berebutton{
