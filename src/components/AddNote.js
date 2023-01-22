@@ -62,6 +62,7 @@ const AddNote = (props) => {
 
           <option value="Tractor" onChange={onChange}>Tractor</option>
           <option value="Tiller" onChange={onChange} >Tiller</option>
+          <option value="pille" onChange={onChange} >pille bored </option>
         </select>
     </div>
     <button disabled={note.title.length<5 || note.description.length<5 || note.number3.length<10 || note.number3.length>10 || note.tag.length < 1} type="submit" className="btn tw-bg-blue-600 berebutton " >Add</button>

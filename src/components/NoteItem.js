@@ -125,7 +125,7 @@ const Noteitem = (props) => {
 </p>
     <span>{note.tag}</span>
     <span>Your Mobile Number {note.number3}</span>
-    <button className="btn btn-primary mx-2" >Jai Raaja</button>
+    <button className="btn btn-primary mx-2" >submit</button>
     {(note.order == "Hehe")?<span>No Orders</span>:<iframe src={`https://www.google.com/maps/embed/v1/directions
 ?key=AIzaSyAHkI40OavSiT8UC01XHhgln5z7O5Thv7A
 &origin=${note.order}
