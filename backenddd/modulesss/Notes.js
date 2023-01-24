@@ -42,6 +42,12 @@ const NotesSchema = new Schema({
     },
     number3:{
         type: Number
+    },
+    location:{
+        type: String
+    },
+    hour:{
+        type: Number
     }
     });
     module.exports = mongoose.model('notes', NotesSchema);

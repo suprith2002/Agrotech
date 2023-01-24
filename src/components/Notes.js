@@ -6,7 +6,9 @@ import AddNote from './AddNote';
 import NoteItem from './NoteItem';
 
 const Notes = (props) => {
-  const[note, setNote] = useState({id :"", etitle: "", edescription: "", etag: "", enumber3:""})
+  // const[note, setNote] = useState({id :"", etitle: "", edescription: "", etag: "", enumber3:""})
+  // const [notee, setnotee] = useState({id: "", edtitle:"", eddescription: "", edtag: "", ednumber3: "", edlocation: "", edhour: ""})
+  const [noy, setnoy] = useState({id: "", ntitle: "", ndescription: "", ntag: "", nnumber3: "", nlocation: "", nhour: ""})
   
   let navigate = useNavigate()
   const [len, setlen] = useState(":")
@@ -14,13 +16,12 @@ const Notes = (props) => {
 
     const handleClick = (e)=>{
     e.preventDefault();
-    console.log("Saved Your Changes", note)
-    let nu = String(note.enumber3)
-    if( (nu.length === 10) &&
-     ((nu.charAt(0) === 6) || (nu.charAt(0) === 7) || (nu.charAt(0) === 8) || (nu.charAt(0) === 9) ))
+    console.log("Saved Your Changes", noy)
+    e.preventDefault()
+    if((noy.nnumber3.toString().charAt(0) == 6) || (noy.nnumber3.toString().charAt(0) == 7) || (noy.nnumber3.toString().charAt(0) == 8) || (noy.nnumber3.toString().charAt(0) == 9) && (noy.nnumber3.toString().length == 10) )
     { 
        setlen(":")
-       editNote(note.id, note.etitle, note.edescription, note.etag, note.enumber3)
+       editNote(noy.id, noy.ntitle, noy.ndescription, noy.ntag, noy.nnumber3, noy.nlocation, noy.nhour)
     refClose.current.click()
     props.showAlert("Updated Equipment", "success")
     setredd({
@@ -41,7 +42,7 @@ const Notes = (props) => {
 }
 const onChange = (e)=>{
     // Illi mooru dot ... hesru spread operator andre note allira value + munde koda value
-    setNote({...note, [e.target.name]: e.target.value})
+    setnoy({...noy, [e.target.name]: e.target.value})
 }
 
   const context = useContext(noteContext)
@@ -67,7 +68,7 @@ const onChange = (e)=>{
   }, [])
   const updateNote = (currentNote) => {
     ref.current.click()
-    setNote({id: currentNote._id, etitle: currentNote.title , edescription:currentNote.description, etag:currentNote.tag, enumber3:currentNote.number3})
+    setnoy({id: currentNote._id, ntitle: currentNote.title , ndescription:currentNote.description, ntag:currentNote.tag, nnumber3:currentNote.number3, nlocation:currentNote.location, nhour:currentNote.hour})
   }
   const ref = useRef(null);
   const refClose = useRef(null);
@@ -156,16 +157,23 @@ const onChange = (e)=>{
             <div className="modal-body">
               <form onSubmit={handleClick}>
                 <div className="mb-3">
-                  <label htmlfor="title" className="form-label">Your Title</label>
-                  <input type="text" className="form-control" name='etitle' id="etitle" aria-describedby="emailHelp" value={note.etitle} onChange={onChange}  minLength={5} required/>
+                  <label htmlfor="ntitle" className="form-label">Your Title</label>
+                  <input type="text" className="form-control tw-bg-stone-300" name='ntitle' id="ntitle" aria-describedby="emailHelp" value={noy.ntitle} onChange={onChange}  minLength={5} required/>
                   <div id="emailHelp" className="form-text">Boom</div>
                 </div>
                 <div className="mb-3">
-                  <label htmlfor="description" className="form-label">Description</label>
-                  <input type="text" className="form-control" name='edescription' id="edescription" value={note.edescription} onChange={onChange} minLength={5} required/><br/>
-                  <label htmlfor="enumber3" className="form-label" style={redd}>Mobile Number{len}
-         <input type="number" className="form-control" name='enumber3' id="enumber3" value={note.enumber3} pattern="[6||7||8||9]+" required onChange={onChange}/><br/>
+                  <label htmlfor="ndescription" className="form-label">Description</label>
+                  <input type="text" className="form-control tw-bg-stone-300" name='ndescription' id="ndescription" value={noy.ndescription} onChange={onChange} minLength={5} required/><br/>
+                  <label htmlfor="nnumber3" className="form-label" style={redd}>Mobile Number{len}
+         <input type="number" className="form-control tw-bg-stone-300" name='nnumber3' id="nnumber3" value={noy.nnumber3} pattern="[6||7||8||9]+" required onChange={onChange}/><br/>
          </label><br/>
+         <label htmlfor="nlocation" className="form-label" >Location
+         <input type="text" className="form-control tw-bg-stone-300" name='nlocation' id="nlocation" value={noy.nlocation}  required onChange={onChange}/><br/>
+         </label><br/>
+         <label htmlfor="nhour" className="form-label tw-bg-stone-300" >Price Per Hour
+         <input type="number" className="form-control" name='nhour' id="nhour" value={noy.nhour}  required onChange={onChange}/><br/>
+         </label><br/>
+         
                 </div>
                 {/* <div className="mb-3 form-check">
       <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
@@ -177,8 +185,8 @@ const onChange = (e)=>{
                 </div>
                 {/* <button type="submit" className="btn btn-primary" onClick={handleClick}>Serisi</button> */}
             <div className="modal-footer">
-              <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" className="btn btn-primary"  >Save changes</button>
+              <button ref={refClose} type="button" className="berebuttonS tw-bg-blue-600" data-bs-dismiss="modal">Close</button>
+              <button type="submit" className="berebuttonS tw-bg-blue-600"  >Save</button>
             </div>
             </form>            </div>
             {/* disabled={note.etitle.length<5 || note.edescription.length<5 || note.enumber3.length<10 || note.enumber3.length>10}  */}
@@ -195,12 +203,13 @@ const onChange = (e)=>{
         </select> */}
         <h2>Your Equipments</h2>
         <span> {notes.length===0 && "No Equipments To Display"} </span>
-        { 
+      { 
             notes.map((note) => {
             return <NoteItem key={note._id} note={note} updateNote={updateNote} showAlert={props.showAlert} noorder={noorder}/>
           })
           
           }
+      
            {/* updateNote={updateNote}  */}
 
          {/* ( notes  >= 0 )

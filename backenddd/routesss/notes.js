@@ -40,7 +40,7 @@ router.post('/addnote',fetchUser,[
 
     // try {
 
-        const {title, description, tag, order, number3} = req.body;
+        const {title, description, tag, order, number3, location, hour} = req.body;
         const errors = validationResult(req);
         //if the field required is empty returns error
         if (!errors.isEmpty()) {
@@ -48,7 +48,7 @@ router.post('/addnote',fetchUser,[
     
         }
         const note = new Notes({
-            title, description, tag, user:req.user.id, order, number3
+            title, description, tag, user:req.user.id, order, number3, location, hour
     
     
         })
@@ -78,7 +78,7 @@ router.put('/updatenote/:id',fetchUser,
 // ], 
 async (req, res) => {
 
-const {title,description,tag, number3} = req.body;
+const {title,description,tag, number3, location, hour} = req.body;
  const newNote = {};
 if (title) {
     newNote.title=title
@@ -91,6 +91,12 @@ if (tag) {
 }
 if (number3){
     newNote.number3=number3
+}
+if (location){
+    newNote.location=location
+}
+if (hour){
+    newNote.hour=hour
 }
 
 

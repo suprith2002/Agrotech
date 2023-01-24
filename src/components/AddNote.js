@@ -7,7 +7,7 @@ import Notes from './Notes';
 const AddNote = (props) => {
     const context = useContext(noteContext)
     const {addNote} = context;
-    const[note, setNote] = useState({title: "", description: "", tag: "", number3: ""})
+    const[note, setNote] = useState({title: "", description: "", tag: "", number3: "", location: "", hour: ""})
     const [len, setlen] = useState(":")
     const [redd, setredd] = useState(null)
     const handleClick = (e)=>{
@@ -18,7 +18,7 @@ const AddNote = (props) => {
           color:'black'
         })
         setlen(":")
-        addNote(note.title, note.description, note.tag, note.number3);
+        addNote(note.title, note.description, note.tag, note.number3, note.location, note.hour);
         props.showAlert("Notes Added Successfully", "success")
       }
         else{
@@ -54,18 +54,26 @@ const AddNote = (props) => {
        <span className='tw-text-lg tw-text-slate-200 tw-px-2' style={redd}>Mobile Number {len}</span>  <br/>
          <input type="number" className="form-control tw-my-2" name='number3' id="number3" onChange={onChange} required /><br/>
        <div className="mb-3">
-      <label htmlfor="tag" className="form-label tw-text-lg tw-text-slate-200 ">Type</label>
       {/* <input type="text" className="form-control" name='tag' id="tag" onChange={onChange} required/> */}
+      <div className="mb-3">
+      <label htmlfor="descrilocationption" className="form-label tw-text-lg tw-text-slate-200">Your Location</label>
+      <input type="text" className="form-control" name='location' id="location" onChange={onChange} required/>
+    </div>
+    <div className="mb-3">
+      <label htmlfor="hour" className="form-label tw-text-lg tw-text-slate-200">Price Per Hour</label>
+      <input type="number" className="form-control" name='hour' id="hour" onChange={onChange} required/>
+    </div>
+    <label htmlfor="tag" className="form-label tw-text-lg tw-text-slate-200 ">Type</label>
       <select className='tw-mx-2 tw-text-lg tw-text-slate-200 tw-bg-fuchsia-800 tw-rounded-full tw-px-2 tw-py-2' name="tag" id="tag" onChange={onChange} required >
+
       <option value="" onChange={onChange} >Select Type</option>
           <option value="Jcb" onChange={onChange} >Jcb</option>
 
           <option value="Tractor" onChange={onChange}>Tractor</option>
           <option value="Tiller" onChange={onChange} >Tiller</option>
-          <option value="pille" onChange={onChange} >pille bored </option>
         </select>
     </div>
-    <button disabled={note.title.length<5 || note.description.length<5 || note.number3.length<10 || note.number3.length>10 || note.tag.length < 1} type="submit" className="btn tw-bg-blue-600 berebutton " >Add</button>
+    <button disabled={note.title.length<5 || note.description.length<5 || note.number3.length<10 || note.number3.length>10 || note.tag.length < 1 || note.location.length <2 || note.hour.length <0} type="submit" className="btn tw-bg-blue-600 berebutton " >Add</button>
   </form></div>
   )
 }

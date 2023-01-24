@@ -26,7 +26,7 @@ const Notes = (props) => {
 
     }
     else{
-      navigate("/login2")
+      navigate("/login")
     }
 
 
@@ -97,7 +97,7 @@ const AllnoteU2= async ()=>{
         {/* <Navbar/> */}
 
 
-      <div className='row my-3'>
+    
         {
            
         }
@@ -107,12 +107,15 @@ const AllnoteU2= async ()=>{
         </select> */}
         <h2>Your Equipments This Is Notes23 {email}</h2>
         <span> {notes.length===0 && "No Equipments To Display"} </span>
-        { 
+        <div className='tw-bg-purple-800 tw-rounded-3xl tw-text-slate-300 tw-text-2xl tw-h-20 tw-w-56  tw-block tw-mx-14'><div className='mx-4 tw-w-auto'><marquee>Welcome User</marquee></div> <span className='mx-4 tw-animate-pulse tw-text-rose-300'> {email} </span></div><br/>
+        <div className='row my-3'>
+          { 
             notes.map((note) => {
             return <NoteItemUser2 key={note._id} note={note}  showAlert={props.showAlert}/>
           })
           
           }
+         
 
          {/* ( notes  >= 0 )
            ?

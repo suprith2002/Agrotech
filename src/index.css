@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("JYU.jpg");
+  /* background-image: url("JYU.jpg"); */
   
 }
 
@@ -24,10 +24,10 @@ code {
   @apply hover:tw-text-white hover:tw-text-2xl tw-font-semibold tw-cursor-pointer tw-transform tw-duration-500  tw-text-pink-300 tw-my-2;
 }
 .logbutton{
-  @apply tw-bg-fuchsia-400 tw-w-14 tw-h-14 tw-rounded-full tw-py-3 tw-my-1 hover:tw-bg-pink-600 hover:tw-text-lg tw-transform tw-duration-500;
+  @apply tw-bg-pink-600 tw-w-14 tw-h-14 tw-rounded-b-xl tw-py-3 tw-my-1 hover:tw-bg-pink-600 hover:tw-text-lg tw-transform tw-duration-500;
 }
 .logbuttonactive{
-  @apply tw-bg-fuchsia-400 tw-border-4 tw-border-red-600 tw-border-double tw-w-16 tw-h-16 tw-rounded-full tw-py-3 hover:tw-bg-pink-600 hover:tw-text-lg tw-transform tw-duration-500;
+  @apply tw-bg-pink-600 tw-border-4 tw-border-amber-300 tw-border-double tw-w-16 tw-h-16 tw-rounded-full tw-py-3 hover:tw-bg-pink-600 hover:tw-text-lg tw-transform tw-duration-500;
 }
 .cardguru{
   @apply tw-bg-slate-100 tw-border-2 tw-border-fuchsia-600 tw-border-y-purple-600 tw-text-center hover:tw-border-double tw-transform tw-duration-200 hover:tw-border-4;
@@ -35,5 +35,8 @@ code {
 @layer components{
 .berebutton{
   @apply    tw-w-20 tw-h-14 tw-rounded-2xl tw-py-3 hover:tw-text-lime-400 hover:tw-text-lg tw-transform tw-duration-500 tw-text-slate-100 tw-font-semibold hover:tw-bg-green-600;
+}
+.berebuttonS{
+  @apply    tw-w-16 tw-h-12 tw-rounded-2xl tw-py-3 hover:tw-text-lime-400 hover:tw-text-lg tw-transform tw-duration-500 tw-text-slate-100 tw-font-semibold hover:tw-bg-green-600;
 }
 }

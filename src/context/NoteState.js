@@ -108,7 +108,7 @@ const NoteState = (props) =>{
         
         
        
-        const addNote = async (title, description, tag, number3)=>{
+        const addNote = async (title, description, tag, number3, location, hour)=>{
           //ToDo API call 
           const response = await fetch("http://localhost:5001/api/notes/addnote", {
             method: 'POST',
@@ -117,7 +117,7 @@ const NoteState = (props) =>{
               // "auth-token": sessionStorage.getItem('token'),
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({title, description, tag, number3})
+            body: JSON.stringify({title, description, tag, number3, location, hour})
           })
           const json = response.json();
           console.log("Adding A New Note");
@@ -165,7 +165,7 @@ const NoteState = (props) =>{
            
         }
         //Edit The Note
-        const editNote = async (id, title, description, tag, number3)=>{
+        const editNote = async (id, title, description, tag, number3, location, hour)=>{
           //API call
           const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
             method: 'PUT',
@@ -174,7 +174,7 @@ const NoteState = (props) =>{
               // "auth-token": sessionStorage.getItem('token'),
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({title, description, tag, number3})
+            body: JSON.stringify({title, description, tag, number3, location, hour})
           })
           const json = response.json();
           //Harry Bhai Method

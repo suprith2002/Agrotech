@@ -23,6 +23,8 @@ import News from './components/News';
 import Signup from './components/Signup';
 import Signup2 from './components/Signup2';
 import AllEq from './components/AllEq';
+import Footer from './components/Footer';
+import { WeatherACC } from './components/WeatherACC';
 // import noteContext from "./context/noteContext";
 
 
@@ -76,10 +78,12 @@ function App() {
     <HOGU exact path="/alln" element={<><AllEq/></>}/>
 
     <HOGU exact path="/news" element={<><News/>  </>}/>
+    <HOGU exact path="/weather" element={<><WeatherACC/> </>}/>
 
 
 
     </TIRUGU>
+    <Footer/>
     </NoteState>
     </ANNA>
  
