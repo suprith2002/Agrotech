@@ -18,6 +18,7 @@ app.use(express.json())
  
 app.use('/api/auth', require('./routesss/auth'))
 app.use('/api/notes', require('./routesss/notes'))
+app.use('/api/sendmail', require('./sendmail'))
 app.get('/', (req, res) => {
   res.send('Ho Shreesha !')
 })

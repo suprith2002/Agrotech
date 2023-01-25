@@ -61,6 +61,9 @@ const Navbar = () => {
         <li className="nav-item hover:tw-text-pink-600 hover:tw-text-2xl tw-font-semibold tw-cursor-pointer tw-transform tw-duration-500  tw-text-pink-600 tw-my-2">
          <KONDI className={` ${(location.pathname === "/weather")?" tw-text-stone-100tw-text-2xl ":' tw-text-pink-300 '}`} aria-current="page" to="/weather">Weather</KONDI>
         </li>
+        {/* <li className="nav-item hover:tw-text-pink-600 hover:tw-text-2xl tw-font-semibold tw-cursor-pointer tw-transform tw-duration-500  tw-text-pink-600 tw-my-2">
+         <KONDI className={` ${(location.pathname === "/email")?" tw-text-stone-100tw-text-2xl ":' tw-text-pink-300 '}`} aria-current="page" to="/email">Email</KONDI>
+        </li> */}
 {/*        
         <li className="nav-item dropdown">
         <KONDI className="nav-link dropdown-toggle" to="/about" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -79,10 +82,10 @@ const Navbar = () => {
       </ul>
      
       {!(sessionStorage.getItem('token') || sessionStorage.getItem('token2') )? <div className=" tw-space-x-2 tw-space-y-2  tw-mx-4  tw-flex-row tw-text-right tw-items-center tw-flex tw-justify-between "><ul className='tw-flex tw-flex-row tw-space-x-4'>
-       <li> <KONDI className="" to="/login" role="button"><button className={` ${(location.pathname === "/login")?"logbuttonactive":'logbutton'}`}>Login</button></KONDI></li>
-       <li> <KONDI className="" to="/login2" role="button"><button className={` ${(location.pathname === "/login2")?"logbuttonactive":'logbutton'}`}>Login2</button></KONDI></li>
+       <li> <KONDI className="" to="/login" role="button"><button className={` ${(location.pathname === "/login")?"logbuttonactive tw-py-2":'logbutton'}`}>Rent Giver</button></KONDI></li>
+       <li> <KONDI className="" to="/login2" role="button"><button className={` ${(location.pathname === "/login2")?"logbuttonactive tw-py-2":'logbutton'}`}>Rent Taker</button></KONDI></li>
 
-       <li> <KONDI className="" to="/signup" role="button"><button className='logbutton'>Signup</button></KONDI></li>
+       {/* <li> <KONDI className="" to="/signup" role="button"><button className='logbutton'>Signup</button></KONDI></li> */}
 
        </ul></div>:<button className="logbutton" onClick={handleLogout}>Logout</button>}
     </div>

@@ -386,5 +386,38 @@ router.post('/getuseremail2order',
 
     }
 });
+router.post('/getuseremail240', fetchUser2,
+     async (req, res) => {
+    try {
+        const userID = req.user2.id;
+   
+        const user2 = await User2.findById(userID).select("-password")
+        res.json(user2)
+
+        
+        // my method AUthtoken entu ildange bari user email mele avana id kandu hididu adna notes schema dalli store aagira avana id ge match maadi aa notes na pattehachhadu
+        // const nn = await User.findOne({email: req.body.email})
+        // const notes = await Notes.findOne({user: nn._id})
+        // res.send(notes.title)
+
+        //filtering out the notes based on tag
+        // if(req.body.tag=="All"){
+        // const noteee = await Notes.find({})
+       
+        // res.send(noteee)}
+        // else{
+        //     const noteee = await Notes.find({ tag:req.body.tag})
+        //     res.send(noteee)
+
+        // }
+
+    }
+    catch (error) {
+
+        res.send(" Yaako eno aatu Router 3 dalli api");
+
+    }
+});
+
 
 module.exports = router;

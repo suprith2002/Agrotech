@@ -10,6 +10,8 @@ import {
   useLocation,
 } from "react-router-dom";
 // import jwt_decode from "jwt-decode";
+import jwt_decode from "jwt-decode";
+
 
 // import { RenderErrorBoundary } from 'react-router/dist/lib/hooks'
 
@@ -82,6 +84,31 @@ const Login = (props) => {
     //  google.accounts.id.renderButton(document.getElementById("signInDiv"),{theme: "outline", size: "large"});
   
     // }, [])
+     // google login
+     const handleCallbackResponse = (response)=>{
+      console.log("Anna JWT Token" + response.credential);
+      const User = jwt_decode(response.credential)
+      console.log(User)
+      setcredentials({email:User.email})
+
+
+
+
+
+
+
+
+    }
+    useEffect(() => {
+     /* global google */
+     google.accounts.id.initialize({
+      client_id: "811773551912-667umsl4ledvaujamil6gqn1v5vnou1q.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+     });
+     google.accounts.id.renderButton(document.getElementById("signInDiv"),{theme: "outline", size: "large"});
+  
+    }, [])
+
 
 
   return (
@@ -136,6 +163,9 @@ const Login = (props) => {
 {/* <div className="App">
       <div id="signInDiv"></div>
     </div> */}
+    <div className="App">
+      <div id="signInDiv"></div>
+    </div>
 
 
     </div>

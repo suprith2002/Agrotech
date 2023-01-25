@@ -36,8 +36,9 @@ import { Forecast } from './Forecast';
         </form>
        <div className='tw-flex tw-flex-row'>{cityData&& <div className='tw-w-1/2' style={{padding:10+'px'}}><WeatherViewer cityData={cityData}/></div>}
         {/* <script src="https://apps.elfsight.com/p/platform.js" defer></script> */}
-        <Forecast/>
+       <> &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<Forecast/></>
         </div> 
       </div>
       )
     }
+    

@@ -55,6 +55,7 @@ const Signup2 = (props) => {
         setfirst({...first, [e.target.name]: e.target.value})
     }
 
+
         // google login
         const handleCallbackResponse = (response)=>{
           console.log("Anna JWT Token" + response.credential);
@@ -86,7 +87,7 @@ const Signup2 = (props) => {
         {/* value={credentials.email} onChange={onChange} */}
         <form onSubmit={handleSubmit} >
        NAme: <input type="text"  className="form-control" placeholder="NAme"  name='name' onChange={onChange} pattern="[A-Za-z]+" title='Only Letters Are Allowed' /> <br/>
-       Email <input type="email" className="form-control"  placeholder="Email" name='email' onChange={onChange} value={first.email}  /> <br/>
+       Email <input type="email" className="form-control"  placeholder="Email" name='email' onChange={onChange} value={first.email} readOnly  /> <br/>
        {/* Password <input type="password"  className="form-control"  placeholder="Password" name='password' minLength={5} onChange={onChange}/> <br/>
        Confirm Password <input type="password"  className="form-control" name='cpassword'  placeholder="Confirm Password" minLength={5} onChange={onChange}/> <br/> */}
       <span style={redd}> Number:{len} <input type="number" name="number2" onChange={onChange} required></input></span> <br/>

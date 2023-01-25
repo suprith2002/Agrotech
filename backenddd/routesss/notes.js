@@ -3,6 +3,8 @@ const router = express.Router();
 const fetchUser = require('../middleware/fetchUser');
 const fetchUser2 = require('../middleware/fetchUser2');
 const User2 = require('../modulesss/User2');
+const User = require('../modulesss/User');
+
 
 const { body, validationResult } = require('express-validator');
 const Notes = require('../modulesss/Notes');
@@ -411,6 +413,27 @@ if (note.user.toString () !== req.user.id) {
 }
 note = await Notes.findByIdAndUpdate(id,{$set : newNote}, {new : true})
     res.json(note)
+
+
+
+
+});
+
+
+//Fetching User on note id
+router.put('/sendU1',
+ 
+async (req, res) => {
+
+const {id} = req.body;
+
+let note = await Notes.findById(id)
+if(!note){
+     return res.status(404).send("NOTE NOT FOUND")
+}
+
+ let u1 = await User.findById(note.user)
+ res.json(u1.email)
 
 
 

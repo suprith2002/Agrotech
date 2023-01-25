@@ -31,7 +31,7 @@ const Noteitem = (props) => {
         })
         const json = await response.json();
         setem23({email:json.email, number2:json.number2})
-        console.log(em23);
+        console.log("Em23 " + json);
         //Harry Bhai Method to fetch notes instantly
           // const note =  {
           //     "_id": "6391d8534098b1c133b9f65g",
