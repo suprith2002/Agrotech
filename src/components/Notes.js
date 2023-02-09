@@ -1,6 +1,14 @@
 import React, { useRef } from 'react'
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import {
+  BrowserRouter as ANNA,
+  Routes as TIRUGU,
+  Route as HOGU,
+  Link as KONDI,
+  useLocation,
+  
+} from "react-router-dom";
 import noteContext from "../context/noteContext";
 import AddNote from './AddNote';
 import NoteItem from './NoteItem';
@@ -60,7 +68,7 @@ const onChange = (e)=>{
 
     }
     else{
-      navigate("/login")
+      navigate("/fulllog")
     }
 
 
@@ -99,41 +107,12 @@ const onChange = (e)=>{
       body: JSON.stringify({id})
     })
     const json = response.json();
-    //Harry Bhai Method
-    // for (let index = 0; index<notes.length;index++){
-    //   const element =notes[index];
-    
-    //   if(element._id === id){
-    //     notes[index].title = title;
-    //     notes[index].description = description;
-    //     notes[index].tag = tag;
-    //   }
-    //   break;
-    // }
-    // setNote2(json)
-    // getnotes()
-//  allnotes("All")
 
-    //my method
-  //  const c=  await getnotes();
-  //  setNote2(json)
 
 
 }
 
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const usersss = await getnotes();
-  //     // setUsers(users);
-  //     // return usersss
-  //   })();
-
-  //   // return () => {
-
-  //   //   // this now gets called when the component unmounts
-  //   // };
-  // }, []);
 
 
   return (
@@ -141,7 +120,11 @@ const onChange = (e)=>{
           <meta charset="utf-8" />
 
       <div id='ho'>
-      <AddNote showAlert={props.showAlert}/> </div>
+      {/* <span className="nav-item hover:tw-text-pink-600 hover:tw-text-2xl tw-font-semibold tw-cursor-pointer tw-transform tw-duration-500  tw-text-pink-600 tw-my-2">
+         <KONDI className="" aria-current="page" to="/addeq">Add An Equipment</KONDI>
+        </span> */}
+     <AddNote showAlert={props.showAlert}/> 
+     </div>
       <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" >
         Launch demo modal
       </button>

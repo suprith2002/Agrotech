@@ -21,7 +21,7 @@ const Email = () => {
         Host : "smtp.elasticemail.com",
         Username : "korishettarsuprith4@gmail.com",
         Password : "yikvyyffponeriep",
-        To : 'suprithrk2002@gmail.com',
+        To : 'korishettarsuprith@gmail.com',
         From : "korishettarsuprith4@gmail.com",
         Subject : "This is the subject",
         Body : "And this is the body"

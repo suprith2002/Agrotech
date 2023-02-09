@@ -6,14 +6,17 @@ import AddNote from './AddNote';
 import NoteItem2 from './NoteItem2';
 import img from "./hoho.jpg"
 import img2 from "./ho.jpg"
+import Googlepay from './Googlepay';
 
 const AllEq = () => {
     const context = useContext(noteContext)
-    const { notes2, getnotes, editNote,allnotes,setnotes2, editorder } = context;
+    const { notes2, notes, getnotes, editNote,allnotes,setnotes2, editorder } = context;
     const [tag2, settag2] = useState("All")
     const ref = useRef(null);
     const refClose = useRef(null);
     const [inputt, setinputt] = useState({order: ""})
+    const [hour, sethour] = useState("")
+    const [noid, setnoid] = useState("")
 
     const [order, setorder] = useState({id:"", order: ""})
     const [email, setemail] = useState({email: "", number2: ""})
@@ -46,14 +49,15 @@ const AllEq = () => {
     
 
       }
-      const handleClick = (e)=>{
+      const handleClick = async(e)=>{
         console.log(order.id)
         e.preventDefault();
         // setinputt(document.getElementsByName("order").value)
         // console.log(document.getElementsByName("order").value)
         addU2(order.id)
         editorder(order.id,order.order)
-        refClose.current.click()
+
+        // refClose.current.click()
 
 
       }
@@ -66,8 +70,11 @@ const AllEq = () => {
        let U1 = await sendU1(CurrentNote._id)
         
         setorder({id:CurrentNote._id, order: CurrentNote.order})
-       
+        sethour(CurrentNote.hour)
+        setnoid(CurrentNote._id)
         sendemail(U1, email.email, email.number2)
+
+        
         // editorder(CurrentNote._id,order)
 
       }
@@ -164,14 +171,14 @@ const AllEq = () => {
     }
 
   return (
-    <div className='tw-text-center tw-mx-auto'>
+    ( sessionStorage.getItem('token2')) && <div className='tw-text-center tw-mx-auto'>
         
           {/* <select onClick={onchange2} >
           <option value="All" >All</option>
           <option value="Personal" >Personal</option>
           <option value="Hehe" >Hehe</option>
         </select> */}
-        <label htmlFor='tag' className='tw-bg-purple-700 tw-py-3 tw-px-3 tw-rounded-3xl tw-text-slate-300 tw-font-semibold hover:tw-text-stone-100'>
+        <label htmlFor='tag'style={{backgroundColor :' '}} className=' tw-bg-violet-800 tw-py-3 tw-px-3 tw-rounded-3xl tw-text-slate-300 tw-font-semibold hover:tw-text-stone-100'>
          <span className='tw-text-2xl'> Apply filter For Search </span>
         <select name="tag" id="tag"  onClick={onchange2} className=' tw-text-stone-100 tw-mx-3 tw-bg-rose-400 tw-rounded-full tw-px-2 tw-py-2 tw-border-2 tw-border-violet-600 tw-border-dashed tw-transform tw-duration-500' >
           <option value="All">All</option>
@@ -197,6 +204,7 @@ const AllEq = () => {
         <form>
             <input type="text" className='tw-bg-stone-300' name="order" pattern="[A-Za-z]+" minLength={3} title="Only Texts Are Allowed" onChange={onChange} required/>
             <button type='button' className='berebuttonS tw-bg-blue-600' onClick={handleClick}>Submit</button>
+            <Googlepay clickk={handleClick} hour={hour}/>
          </form>
       </div>
       <div class="modal-footer">

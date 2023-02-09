@@ -1,5 +1,7 @@
 import React , {useState}from 'react'
 import { useNavigate } from 'react-router-dom'
+import  { useRef } from 'react'
+
 import { useContext, useEffect} from 'react'
 import noteContext from "../context/noteContext";
 import jwt_decode from "jwt-decode";
@@ -25,6 +27,12 @@ const Login = (props) => {
     const {test, settest, block, setblock } = context;
 
     const [credentials, setcredentials] = useState({email:"", password:""})
+    const ref = useRef(null);
+
+    const onchangehandle = () => {
+      ref.current.click()
+    }
+
 
   
 
@@ -101,55 +109,33 @@ const Login = (props) => {
 
 
   return (
-    <div><div className='w-25'><h1><marquee>WelCome User</marquee></h1></div>
-    <form onSubmit={handleSubmit}>
-          <div className="form-outline mb-4">
-    <input type="email" id="form2Example1" className="form-control" name='email' value={credentials.email} onChange={onChange} />
-    <label className="form-label" htmlfor="form2Example1" >Email address</label>
+    <div className='tw-flex tw-flex-col tw-justify-center tw-items-center'>
+      <div className='tw-text-3xl tw-text-emerald-800 tw-font-serif tw-font-extrabold'>Rent Giver Login</div>
+      {/* <div className='w-25'><h1><marquee>WelCome User</marquee></h1></div> */}
+    <div className='tw-w-1/2 tw-bg-slate-200 tw-flex tw-flex-col tw-justify-center tw-text-center tw-py-5 tw-rounded-3xl tw-my-5'>
+      <form onSubmit={handleSubmit}>
+          <div className="form-outline mb-4 ">
+          <label className="form-label tw-text-rose-700 tw-text-2xl" htmlfor="form2Example1" >Sign In With Google</label>
+    <input type="email" id="form2Example1" className="form-control tw-w-1/2 tw-mx-auto tw-my-3" name='email' value={credentials.email} onChange={onChange} readOnly/>
   </div>
 
-  {/* <div className="form-outline mb-4">
-    <input type="password" id="form2Example2" className="form-control" value={credentials.password} name='password'  onChange={onChange} minLength={5}/>
-    <label className="form-label" htmlfor="form2Example2">Password</label>
-  </div> */}
 
-  <div className="row mb-4">
-    <div className="col d-flex justify-content-center">
-      <div className="form-check">
-        <input className="form-check-input" type="checkbox" value="" id="form2Example31"  />
-        <label className="form-check-label" htmlfor="form2Example31"> Remember me </label>
-      </div>
-    </div>
 
-    <div className="col">
-      <a href="#!">Forgot password?</a>
-    </div>
-  </div>
 
-  <button disabled={credentials.email.length<1} type="submit" className="btn btn-primary btn-block mb-4" >Sign in</button>
+  <button ref={ref} disabled={credentials.email.length<1} type="submit" className="btn tw-bg-blue-600 berebutton  tw-mx-auto" >Sign in</button>
 
   <div className="text-center">
-    <p>Not a member? <KONDI to="/signup">Signup</KONDI></p>
-    {/* <p>or sign up with:</p>
-    <button type="button" className="btn btn-link btn-floating mx-1">
-      <i className="fab fa-facebook-f"></i>
-    </button>
-    <button type="button" className="btn btn-link btn-floating mx-1">
-      <i className="fab fa-google"></i>
-    </button>
-    <button type="button" className="btn btn-link btn-floating mx-1">
-      <i className="fab fa-twitter"></i>
-    </button>
-    <button type="button" className="btn btn-link btn-floating mx-1">
-      <i className="fab fa-github"></i>
-    </button> */}
+ 
   </div>
 </form>
-<p></p>
-<div className="App">
-      <div id="signInDiv"></div>
-    </div>
-    {/* <div style={mystyle}>powered by <a href="https://surfing-waves.com" rel="noopener" target="_blank" style={{color:"#ccc"}}>Surfing Waves</a></div>  */}
+{/* <div className=""> */}
+    <div className=' tw-flex tw-justify-center tw-py-3' >
+      <div  className='tw-h-24' id="signInDiv" onChange={onchangehandle}></div>
+      </div>
+
+      <p>Not a member? <KONDI to="/signup"><span className='tw-text-green-600 tw-text-xl tw-font-bold hover:tw-text-pink-600 tw-transform tw-duration-500'>Signup</span></KONDI></p>
+
+      </div>
     
 
 

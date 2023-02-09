@@ -69,48 +69,6 @@ const Noteitem = (props) => {
 
 
     <>
-          {/* <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-        Launch demo modal
-      </button>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Note</h1>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div> */}
-            {/* <div className="modal-body">
-              <form>
-                <div className="mb-3">
-                  <label htmlfor="title" className="form-label">Your Title</label>
-                  <input type="text" className="form-control" name='etitle' id="etitle" aria-describedby="emailHelp"  />
-                  <div id="emailHelp" className="form-text">Boom</div>
-                </div>
-                <div className="mb-3">
-                  <label htmlfor="description" className="form-label">Description</label>
-                  <input type="text" className="form-control" name='edescription' id="edescription"  />
-                </div> */}
-                {/* <div className="mb-3 form-check">
-      <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-      <label className="form-check-label" htmlfor="exampleCheck1">Check me out</label>
-    </div> */}
-                {/* <div className="mb-3">
-                  <label htmlfor="tag" className="form-label">tag</label>
-                  <input type="text" className="form-control" name='etag' id="etag"  />
-                </div>
-                <button type="submit" className="btn btn-primary" >Serisi</button>
-              </form>            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary" >Save changes</button>
-            </div> */}
-          {/* </div>
-        </div>
-      </div> */}
-   
-     
-
 
          <div className='card col-md-5 mx-3 my-3 tw-mx-auto cardguru tw-relative'>
  

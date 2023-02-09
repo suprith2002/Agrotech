@@ -45,7 +45,7 @@ const Signup = (props) => {
         setredd({
           color:'red'
         })
-         setlen(":Phone Number Should Be 10 Digits And Start With 6 or 7 or 8 or 9")
+         setlen(": Should Be 10 Digits And Start With 6 or 7 or 8 or 9")
       }
 
     }
@@ -81,23 +81,26 @@ const Signup = (props) => {
         }, [])
 
   return (
-    <div>
-        <div className='w-25'><h1><marquee>Join With Us 🤝</marquee></h1></div>
+    <div className='tw-flex tw-flex-col tw-justify-center tw-items-center'>
+        <div className='tw-w-1/2 tw-bg-slate-200 tw-flex tw-flex-col tw-justify-center tw-text-center tw-py-5 tw-rounded-3xl tw-my-5'>
+        <div className='w-25  tw-mx-auto tw-flex tw-justify-center tw-items-center'><h1><marquee>Join With Us 🤝</marquee></h1></div>
+        <label className="form-label tw-text-rose-700 tw-text-2xl" htmlfor="form2Example1" >Sign Up With Google</label>
         {/* value={credentials.email} onChange={onChange} */}
         <form onSubmit={handleSubmit} >
-       NAme: <input type="text"  className="form-control" placeholder="NAme"  name='name' onChange={onChange} pattern="[A-Za-z]+" title='Only Letters Are Allowed' /> <br/>
-       Email <input type="email" className="form-control"  placeholder="Email" name='email' onChange={onChange} value={first.email}  /> <br/>
+       Name: <input type="text"  className="form-control tw-w-1/2 tw-mx-auto tw-my-3" placeholder="Name"  name='name' onChange={onChange} pattern="[A-Za-z]+" title='Only Letters Are Allowed' /> <br/>
+       Email <input type="email" className="form-control tw-w-1/2 tw-mx-auto tw-my-3"  placeholder="Email" name='email' onChange={onChange} value={first.email}  /> <br/>
        {/* Password <input type="password"  className="form-control"  placeholder="Password" name='password' minLength={5} onChange={onChange}/> <br/>
        Confirm Password <input type="password"  className="form-control" name='cpassword'  placeholder="Confirm Password" minLength={5} onChange={onChange}/> <br/> */}
-      <span style={redd}> Number:{len} <input type="number" name="number1" onChange={onChange} required></input></span> <br/>
-       <button disabled={first.email.length<1 } type="submit" className="btn btn-primary btn-block mb-4 my-2" >Signup</button>
+      <span style={redd}> Number:{len} <br/> <input type="number" name="number1" className='tw-w-1/2 tw-mx-auto tw-my-3' onChange={onChange} placeholder='Number' required></input></span> <br/>
+       <button disabled={first.email.length<1 } type="submit" className="btn tw-bg-blue-600 berebutton  tw-mx-auto" >Signup</button>
 
        
        </form>
 
 
-       <div className="App">
+       <div className="App tw-flex tw-justify-center tw-my-4">
       <div id="signInDiv"></div>
+    </div>
     </div>
         </div>
   )

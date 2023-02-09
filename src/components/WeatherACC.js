@@ -41,4 +41,3 @@ import { Forecast } from './Forecast';
       </div>
       )
     }
-    

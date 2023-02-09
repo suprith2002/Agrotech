@@ -26,6 +26,9 @@ import AllEq from './components/AllEq';
 import Email from './components/Email';
 import Footer from './components/Footer';
 import { WeatherACC } from './components/WeatherACC';
+import AddNote from './components/AddNote';
+import Fulllog from './components/Fulllog';
+import Googlepay from './components/Googlepay';
 // import noteContext from "./context/noteContext";
 
 
@@ -82,6 +85,11 @@ function App() {
     <HOGU exact path="/weather" element={<><WeatherACC/> </>}/>
     <HOGU exact path="/email" element={<><Email/>
  </>}/>
+   <HOGU exact path="/fulllog" element={<> <Fulllog/> </>}/>
+   <HOGU exact path="/gpay" element={<> <Googlepay/> </>}/>
+
+ <HOGU exact path="/addeq" element={<><AddNote showAlert={showAlert}/> </>}/>
+
 
     
     

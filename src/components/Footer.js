@@ -5,7 +5,7 @@ import {
     useLocation
     } from "react-router-dom";
     import './stylefooter.css'
-    import pic from './Log.png'
+    import pic from './favicon.ico.jpg'
 
 const Footer = () => {
     
@@ -26,20 +26,32 @@ const Footer = () => {
             <div class="footer-col">
                 <h4>follow us</h4>
                 <div class="social-links">
-                    <a href="https://github.com/SHREESHA-HEGDE14"><i class="fab fa-github"></i></a>
-                    <a href="https://github.com/suprith2002/Agrotech.git"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/SHREESHA-HEGDE14" target='_blank'><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/suprith2002/Agrotech.git" target='_blank' ><i class="fab fa-github"></i></a>
+                    {/* <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <a href='https://wa.me/+918277549037'  target='_blank'><i className="fa-brands fa-whatsapp tw-text-4xl tw-text-green-600"></i></a>
+                    <a href='https://wa.me/+918277549037'  target='_blank'><i className="fa-brands fa-whatsapp tw-text-4xl tw-text-green-600 "></i></a>
+                    </div> */}
 
                 </div>
             </div>
             <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <a href='https://wa.me/+918277549037'  target='_blank'><i className="fa-brands fa-whatsapp tw-text-4xl tw-text-green-600 hover:tw-text-stone-100"></i></a>
+                    <a href='https://wa.me/+917337800848'  target='_blank'><i className="fa-brands fa-whatsapp tw-text-4xl tw-text-green-600 tw-mx-4 hover:tw-text-stone-100"></i></a>
+                    </div>
+            <div class="footer-col">
              <div class="img1">
-                     <img src={pic} alt='' />
+                     <img style={{
+                        backgroundColor : '#beef00'
+                     }} className='tw-h-40 tw-w-40 tw-rounded-full' src={pic} alt='' />
              </div>
          </div>
         </div>
     </div>
   <div style={{'padding-top':'10px'}} class="footer-bottom">
-     <p>Copyright Reserved &copy; 2023 </p>
+     {/* <p>Copyright Reserved &copy; 2023 </p> */}
   </div>
   
 </footer></div>
